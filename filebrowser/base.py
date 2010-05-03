@@ -97,6 +97,11 @@ class FileObject(object):
         return u"%s" % value
     path_relative_directory = property(_path_relative_directory)
     
+    def _folder(self):
+        directory_re = re.compile(r'^(%s)' % (DIRECTORY.rstrip('/')))
+        return u"%s/" % directory_re.sub('', self.head)
+    folder = property(_folder)
+    
     def _url_relative(self):
         return self.url_rel
     url_relative = property(_url_relative)

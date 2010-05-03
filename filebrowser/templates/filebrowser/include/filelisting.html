@@ -74,6 +74,9 @@
     <!-- RENAME -->
     <td class="fb_icon"><a href="{% url fb_rename %}{% query_string %}&amp;filename={{ file.filename }}" class="fb_renamelink" title="{% trans 'Rename' %}"></a></td>
     
+    <!-- FOLDER -->
+    {% if q %}<td>{{ file.folder }}</td>{% endif %}
+    
     <!-- SIZE -->
     <td>{{ file.filesize|filesizeformat }}</td>
     
