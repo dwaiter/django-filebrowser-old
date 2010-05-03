@@ -1,0 +1,22 @@
+{% load i18n fb_tags %}
+<thead>
+    <tr>
+    <!-- SELECT -->
+    {% ifequal query.pop '1' %}{% if results_var.select_total %}<th></th>{% endif %}{% endifequal %}
+    {% ifequal query.pop '2' %}{% if results_var.select_total %}<th></th>{% endif %}{% endifequal %}
+    {% ifequal query.pop '3' %}{% if results_var.select_total %}<th></th>{% endif %}{% endifequal %}
+    <!-- FILETYPE -->
+    <th>&nbsp;</th>
+    <!-- FILENAME / DIMENSIONS  -->
+    <th>{% trans 'Folder' %}</th>
+    <!-- RENAME -->
+    <th>&nbsp;</th>
+    <!-- SIZE -->
+    <th>{% trans 'Size' %}</th>
+    <!-- DATE -->
+    <th>{% trans 'Date' %}</th>
+    <!-- DELETE -->
+    {% if results_var.delete_total %}<th>&nbsp;</th>{% endif %}
+    {% if settings_var.DEBUG %}<th>Debug</th>{% endif %}
+    </tr>
+</thead>

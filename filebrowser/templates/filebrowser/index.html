@@ -57,6 +57,23 @@
     {% endblock %}
     <div class="module filtered" id="changelist">
         <div class="changelist-content">
+            {% if folders %}
+                <div class="result-list-container">
+                    {% if results_var.results_current %}
+                    <div class="result-list">
+                        <table cellspacing="0">
+                            {% include "filebrowser/include/folders/tableheader.html" %}
+                            <tbody>
+                            {% include "filebrowser/include/folders/folderlisting.html" %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% endif %}
+                    {% include "filebrowser/include/folders/pagination.html" %}
+                </div>
+                <br/>
+            {% endif %}
+            
             <div class="result-list-container">
                 {% if results_var.results_current %}
                 <div class="result-list">

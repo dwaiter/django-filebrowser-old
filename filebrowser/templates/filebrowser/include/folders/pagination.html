@@ -1,0 +1,5 @@
+{% load i18n fb_tags %}
+
+<p class="paginator">
+    <strong>{% blocktrans count folders|length as counter %}{{ counter }} Folder{% plural %}{{ counter }} Folders{% endblocktrans %}</strong>
+</p>

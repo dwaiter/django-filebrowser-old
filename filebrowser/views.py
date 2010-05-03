@@ -127,6 +127,11 @@ def browse(request):
     # SORTING
     query['o'] = request.GET.get('o', DEFAULT_SORTING_BY)
     query['ot'] = request.GET.get('ot', DEFAULT_SORTING_ORDER)
+    
+    folders = [f for f in files if f.filetype == 'Folder']
+    folders = sort_by_attr(folders, 'filename')
+    
+    files = [f for f in files if f.filetype != 'Folder']
     files = sort_by_attr(files, request.GET.get('o', DEFAULT_SORTING_BY))
     if not request.GET.get('ot') and DEFAULT_SORTING_ORDER == "desc" or request.GET.get('ot') == "desc":
         files.reverse()
@@ -146,6 +151,7 @@ def browse(request):
         'p': p,
         'q': q,
         'page': page,
+        'folders': folders,
         'results_var': results_var,
         'counter': counter,
         'query': query,

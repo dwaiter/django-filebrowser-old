@@ -8,7 +8,7 @@
 
 <p class="paginator">
 {% if results_var.results_total %}
-    <strong>{% blocktrans count results_var.results_total as counter %}{{ counter }} Item{% plural %}{{ counter }} Items{% endblocktrans %}</strong>&nbsp;
+    <strong>{% blocktrans count results_var.results_current as counter %}{{ counter }} Item{% plural %}{{ counter }} Items{% endblocktrans %}</strong>&nbsp;
     {% if page_range %}
         {% for i in page_range %}
             {% ifequal i "." %}
